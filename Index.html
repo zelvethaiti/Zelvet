@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07110d">
+  <title>ZELVET — Votre monde numérique</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07110d;
+      color: #f2fff7;
+    }
+    header {
+      padding: 22px;
+      border-bottom: 1px solid #1d3829;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 27px; font-weight: 900; letter-spacing: 3px; }
+    .logo span { color: #31e889; }
+    .tag { color: #9bb5a5; font-size: 11px; margin-top: 5px; }
+    .private {
+      border: 1px solid #31e889;
+      color: #31e889;
+      border-radius: 20px;
+      padding: 7px 10px;
+      font-size: 11px;
+    }
+    main { padding: 25px 18px; max-width: 650px; margin: auto; }
+    .hero {
+      padding: 28px 20px;
+      border: 1px solid #234b34;
+      border-radius: 20px;
+      background: linear-gradient(140deg, #12271b, #09150f);
+    }
+    h1 { font-size: 32px; margin: 0 0 12px; }
+    h1 span { color: #31e889; }
+    p { color: #b6c9bc; line-height: 1.6; }
+    .button {
+      display: inline-block;
+      background: #31e889;
+      color: #07110d;
+      padding: 13px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 0;
+      margin-top: 10px;
+    }
+    h2 { font-size: 19px; margin-top: 28px; }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .service {
+      background: #101f16;
+      border: 1px solid #23412e;
+      border-radius: 14px;
+      padding: 18px 14px;
+    }
+    .symbol { font-size: 25px; }
+    .service h3 { margin-bottom: 5px; font-size: 15px; }
+    .service p { font-size: 12px; margin-bottom: 0; }
+    footer { text-align: center; padding: 25px; color: #718779; font-size: 12px; }
+    @media (max-width: 360px) {
+      .services { grid-template-columns: 1fr; }
+      h1 { font-size: 27px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="logo">ZEL<span>VET</span></div>
+      <div class="tag">YOUR DIGITAL WORLD. YOUR CONTROL.</div>
+    </div>
+    <div class="private">● ESPACE PRIVÉ</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Bienvenue chez <span>ZELVET</span></h1>
+      <p>Une nouvelle expérience pour vos services financiers et votre univers numérique.</p>
+      <button class="button" onclick="alert('Bienvenue ! La connexion sécurisée sera configurée dans une prochaine étape.')">
+        Découvrir ZELVET
+      </button>
+    </section>
+
+    <h2>Nos univers</h2>
+    <section class="services">
+      <article class="service">
+        <div class="symbol">◈</div>
+        <h3>Services financiers</h3>
+        <p>Un espace dédié aux futurs services financiers de ZELVET.</p>
+      </article>
+      <article class="service">
+        <div class="symbol">⌘</div>
+        <h3>Services numériques</h3>
+        <p>Des outils et services digitaux réunis au même endroit.</p>
+      </article>
+      <article class="service">
+        <div class="symbol">▤</div>
+        <h3>Activité</h3>
+        <p>Un espace pour suivre les activités futures de la plateforme.</p>
+      </article>
+      <article class="service">
+        <div class="symbol">⚙</div>
+        <h3>Paramètres</h3>
+        <p>Une interface pensée pour évoluer avec vos besoins.</p>
+      </article>
+    </section>
+    <footer>© 2026 ZELVET · Tous droits réservés</footer>
+  </main>
+</body>
+</html>
