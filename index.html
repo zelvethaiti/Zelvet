@@ -1,391 +1,255 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zelvet — Un tout nouveau monde s'offre à vous</title>
+<meta name="description" content="Zelvet : accompagnement, services et soutien pour vous aider à avancer.">
 <style>
-:root {
-  --bg: #ffffff;
-  --panel: #ffffff;
-  --panel2: #f3f8f4;
-  --green: #167447;
-  --green-dark: #105b37;
-  --green-soft: #e9f5ed;
-  --gold: #b58a2b;
-  --text: #17211b;
-  --muted: #5e6c63;
-  --border: #dce7df;
-  --shadow: 0 14px 38px rgba(20,60,38,.08);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.65;
-}
-a { color: inherit; text-decoration: none; }
-button, input, textarea, select { font: inherit; }
-button, .btn {
-  cursor: pointer;
-  border: 0;
-  border-radius: 12px;
-  padding: 12px 17px;
-  font-weight: 700;
-  display: inline-block;
-  text-align: center;
-  transition: transform .18s, box-shadow .18s, background .18s;
-}
-button:hover, .btn:hover { transform: translateY(-2px); }
-.btn-primary {
-  background: var(--green);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(22,116,71,.16);
-}
-.btn-primary:hover { background: var(--green-dark); }
-.btn-outline {
-  border: 1px solid var(--green);
-  color: var(--green-dark);
-  background: #fff;
-}
-.btn-outline:hover { background: var(--green-soft); }
-.container { width: min(1100px, 92%); margin: auto; }
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(255,255,255,.96);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(14px);
-}
-.topbar {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  font-size: 1.36rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: var(--text);
-}
-.brand-mark {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: linear-gradient(145deg,var(--green),var(--green-dark));
-  color: #f3d994;
-  font-size: 1.35rem;
-  box-shadow: inset 0 0 0 2px rgba(226,190,100,.8);
-}
-.brand small {
-  display: block;
-  font-size: .59rem;
-  color: var(--muted);
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-nav { display: flex; gap: 17px; align-items: center; }
-nav a { color: var(--muted); font-size: .9rem; font-weight: 600; }
-nav a:hover { color: var(--green); }
-nav a.btn-primary { color: #fff; }
-.menu-button {
-  display: none;
-  background: var(--green-soft);
-  color: var(--green-dark);
-}
-
-.hero {
-  padding: 78px 0 66px;
-  background:
-    radial-gradient(ellipse at 88% 8%,rgba(181,138,43,.12),transparent 32%),
-    radial-gradient(ellipse at 8% 20%,rgba(22,116,71,.10),transparent 42%),
-    linear-gradient(180deg,#fbfdfb,#fff);
-  border-bottom: 1px solid #edf2ee;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 48px;
-  align-items: center;
-}
-.eyebrow {
-  color: var(--green);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 1.8px;
-  font-size: .76rem;
-}
-.eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 23px;
-  height: 2px;
-  background: var(--gold);
-  vertical-align: middle;
-  margin: 0 9px 3px 0;
-}
-h1 {
-  font-size: clamp(2.5rem,6vw,4.35rem);
-  line-height: 1.06;
-  letter-spacing: -1.8px;
-  margin: 16px 0;
-}
-h1 span { color: var(--green); }
-h2 {
-  font-size: clamp(1.7rem,4vw,2.45rem);
-  line-height: 1.22;
-  letter-spacing: -.5px;
-}
-h3 { line-height: 1.35; }
-p { color: var(--muted); }
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 27px;
-}
-.hero-card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #d8e7dc;
-  border-radius: 26px;
-  background: linear-gradient(145deg,#fff,#f2f8f3);
-  padding: 32px;
-  box-shadow: var(--shadow);
-}
-.hero-card::after {
-  content: "";
-  position: absolute;
-  width: 145px;
-  height: 145px;
-  border: 1px solid rgba(181,138,43,.24);
-  border-radius: 50%;
-  right: -60px;
-  top: -65px;
-}
-.hero-symbol {
-  width: 76px;
-  height: 76px;
-  border-radius: 23px;
-  display: grid;
-  place-items: center;
-  background: var(--green);
-  color: #f3d994;
-  border: 2px solid #d7b45c;
-  font-size: 2.5rem;
-  margin-bottom: 22px;
-  box-shadow: 0 10px 24px rgba(22,116,71,.16);
-}
-.quick-links {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 10px;
-  margin-top: 26px;
-}
-.quick-links a {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 8px;
-  text-align: center;
-  font-size: .8rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(25,60,40,.035);
-}
-.quick-links a:hover {
-  border-color: var(--gold);
-  background: #fffdf8;
-}
-
-section { padding: 66px 0; }
-section:nth-of-type(even) { background: #fbfdfb; }
-.section-head { max-width: 700px; margin-bottom: 30px; }
-.section-head h2 { margin: 12px 0 10px; }
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
-}
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 19px;
-  padding: 24px;
-  box-shadow: 0 7px 22px rgba(20,60,38,.035);
-  transition: transform .2s, box-shadow .2s, border-color .2s;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: #c5d9ca;
-}
-.card-icon {
-  width: 49px;
-  height: 49px;
-  display: grid;
-  place-items: center;
-  border-radius: 15px;
-  background: var(--green-soft);
-  color: var(--green);
-  border: 1px solid #d8eadd;
-  font-size: 1.45rem;
-}
-.card h3 { margin: 16px 0 7px; }
-.card p { font-size: .93rem; }
-.card a { color: var(--green); font-weight: 800; }
-
-.help-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 16px;
-}
-.help-item {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  padding: 21px;
-  box-shadow: 0 5px 18px rgba(20,60,38,.03);
-}
-.help-item .card-icon { flex-shrink: 0; }
-.help-item h3 { margin: 0 0 5px; font-size: 1rem; }
-.help-item p { margin: 0 0 13px; font-size: .88rem; }
-.help-item .btn { font-size: .88rem; padding: 10px 12px; }
-
-.support {
-  border: 1px solid #d9c58c;
-  border-radius: 25px;
-  padding: 38px;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at top right,rgba(181,138,43,.13),transparent 42%),
-    linear-gradient(135deg,#f5faf6,#fffdf7);
-  box-shadow: var(--shadow);
-}
-.support p { max-width: 610px; margin: 12px auto 22px; }
-
-.form-wrap {
-  max-width: 720px;
-  padding: 26px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-label {
-  display: block;
-  margin: 14px 0 6px;
-  font-weight: 700;
-  font-size: .9rem;
-  color: var(--text);
-}
-input, textarea, select {
-  width: 100%;
-  padding: 13px 14px;
-  border: 1px solid #cbdacf;
-  border-radius: 11px;
-  background: #fff;
-  color: var(--text);
-  outline: none;
-}
-input:focus, textarea:focus, select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(22,116,71,.10);
-}
-textarea { min-height: 110px; resize: vertical; }
-.notice {
-  border-left: 3px solid var(--gold);
-  padding: 12px 15px;
-  background: #fcf8ec;
-  color: #655b43;
-  font-size: .88rem;
-  border-radius: 6px;
-}
-details {
-  padding: 17px 19px;
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  margin-bottom: 10px;
-  background: #fff;
-}
-summary { cursor: pointer; font-weight: 750; }
-summary::marker { color: var(--gold); }
-details p { margin-bottom: 0; }
-
-footer {
-  border-top: 1px solid var(--border);
-  padding: 34px 0;
-  background: #f7faf7;
-}
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: .9rem;
-}
-.footer-links a { color: var(--muted); }
-.footer-links a:hover { color: var(--green); }
-.small { font-size: .8rem; }
-.status { margin-top: 14px; color: var(--green-dark); }
-:focus-visible {
-  outline: 3px solid rgba(181,138,43,.65);
-  outline-offset: 3px;
-}
-
-@media (max-width: 850px) {
-  nav { gap: 11px; }
-  nav a { font-size: .83rem; }
-  .hero-grid { gap: 28px; }
-}
-@media (max-width: 760px) {
-  .menu-button { display: block; }
-  nav {
-    display: none;
-    position: absolute;
-    top: 78px;
-    left: 0;
-    right: 0;
-    padding: 18px 4%;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 12px 18px rgba(20,60,38,.08);
-    flex-direction: column;
-    align-items: stretch;
-  }
-  nav.open { display: flex; }
-  nav a { padding: 8px 0; font-size: .95rem; }
-  nav a.btn-primary { padding: 12px 16px; }
-  .hero { padding-top: 49px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
-  .hero-card { padding: 25px; }
-  .cards { grid-template-columns: 1fr; }
-  .help-grid { grid-template-columns: 1fr; }
-  .quick-links { grid-template-columns: repeat(2,1fr); }
-  .support { padding: 27px 19px; }
-  .form-wrap { padding: 19px; }
-  section { padding: 52px 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-  }
-}
+:root{--bg:#fff;--panel:#fff;--panel2:#f3f8f4;--green:#167447;--green-dark:#105b37;--green-soft:#e9f5ed;--gold:#b58a2b;--text:#17211b;--muted:#5e6c63;--border:#dce7df;--shadow:0 14px 38px rgba(20,60,38,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button,.btn{cursor:pointer;border:0;border-radius:12px;padding:12px 17px;font-weight:700;display:inline-block;text-align:center;transition:transform .18s,box-shadow .18s,background .18s}
+button:hover,.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 6px 16px rgba(22,116,71,.16)}
+.btn-primary:hover{background:var(--green-dark)}
+.btn-outline{border:1px solid var(--green);color:var(--green-dark);background:#fff}
+.btn-outline:hover{background:var(--green-soft)}
+.container{width:min(1100px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(14px)}
+.topbar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-size:1.36rem;font-weight:900;letter-spacing:2px;color:var(--text)}
+.brand-mark{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,var(--green),var(--green-dark));color:#f3d994;font-size:1.35rem;box-shadow:inset 0 0 0 2px rgba(226,190,100,.8)}
+.brand small{display:block;font-size:.59rem;color:var(--muted);letter-spacing:1px;font-weight:700}
+nav{display:flex;gap:17px;align-items:center}
+nav a{color:var(--muted);font-size:.9rem;font-weight:600}
+nav a:hover{color:var(--green)}
+nav a.btn-primary{color:#fff}
+.menu-button{display:none;background:var(--green-soft);color:var(--green-dark)}
+.hero{padding:78px 0 66px;background:radial-gradient(ellipse at 88% 8%,rgba(181,138,43,.12),transparent 32%),radial-gradient(ellipse at 8% 20%,rgba(22,116,71,.10),transparent 42%),linear-gradient(180deg,#fbfdfb,#fff);border-bottom:1px solid #edf2ee}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{color:var(--green);text-transform:uppercase;font-weight:800;letter-spacing:1.8px;font-size:.76rem}
+.eyebrow::before{content:"";display:inline-block;width:23px;height:2px;background:var(--gold);vertical-align:middle;margin:0 9px 3px 0}
+h1{font-size:clamp(2.5rem,6vw,4.35rem);line-height:1.06;letter-spacing:-1.8px;margin:16px 0}
+h1 span{color:var(--green)}
+h2{font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.22;letter-spacing:-.5px}
+h3{line-height:1.35}
+p{color:var(--muted)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.hero-card{position:relative;overflow:hidden;border:1px solid #d8e7dc;border-radius:26px;background:linear-gradient(145deg,#fff,#f2f8f3);padding:32px;box-shadow:var(--shadow)}
+.hero-card::after{content:"";position:absolute;width:145px;height:145px;border:1px solid rgba(181,138,43,.24);border-radius:50%;right:-60px;top:-65px}
+.hero-symbol{width:76px;height:76px;border-radius:23px;display:grid;place-items:center;background:var(--green);color:#f3d994;border:2px solid #d7b45c;font-size:2.5rem;margin-bottom:22px;box-shadow:0 10px 24px rgba(22,116,71,.16)}
+.quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.quick-links a{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;font-size:.8rem;font-weight:700;box-shadow:0 4px 12px rgba(25,60,40,.035)}
+.quick-links a:hover{border-color:var(--gold);background:#fffdf8}
+section{padding:66px 0}
+section:nth-of-type(even){background:#fbfdfb}
+.section-head{max-width:700px;margin-bottom:30px}
+.section-head h2{margin:12px 0 10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:19px;padding:24px;box-shadow:0 7px 22px rgba(20,60,38,.035);transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c5d9ca}
+.card-icon{width:49px;height:49px;display:grid;place-items:center;border-radius:15px;background:var(--green-soft);color:var(--green);border:1px solid #d8eadd;font-size:1.45rem}
+.card h3{margin:16px 0 7px}
+.card p{font-size:.93rem}
+.card a{color:var(--green);font-weight:800}
+.help-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.help-item{display:flex;gap:15px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:17px;padding:21px;box-shadow:0 5px 18px rgba(20,60,38,.03)}
+.help-item .card-icon{flex-shrink:0}
+.help-item h3{margin:0 0 5px;font-size:1rem}
+.help-item p{margin:0 0 13px;font-size:.88rem}
+.help-item .btn{font-size:.88rem;padding:10px 12px}
+.support{border:1px solid #d9c58c;border-radius:25px;padding:38px;text-align:center;background:radial-gradient(ellipse at top right,rgba(181,138,43,.13),transparent 42%),linear-gradient(135deg,#f5faf6,#fffdf7);box-shadow:var(--shadow)}
+.support p{max-width:610px;margin:12px auto 22px}
+.form-wrap{max-width:720px;padding:26px;background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow)}
+label{display:block;margin:14px 0 6px;font-weight:700;font-size:.9rem;color:var(--text)}
+input,textarea,select{width:100%;padding:13px 14px;border:1px solid #cbdacf;border-radius:11px;background:#fff;color:var(--text);outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,116,71,.10)}
+textarea{min-height:110px;resize:vertical}
+.notice{border-left:3px solid var(--gold);padding:12px 15px;background:#fcf8ec;color:#655b43;font-size:.88rem;border-radius:6px}
+details{padding:17px 19px;border:1px solid var(--border);border-radius:13px;margin-bottom:10px;background:#fff}
+summary{cursor:pointer;font-weight:750}
+summary::marker{color:var(--gold)}
+details p{margin-bottom:0}
+footer{border-top:1px solid var(--border);padding:34px 0;background:#f7faf7}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;flex-wrap:wrap;gap:16px;font-size:.9rem}
+.footer-links a{color:var(--muted)}
+.footer-links a:hover{color:var(--green)}
+.small{font-size:.8rem}
+.status{margin-top:14px;color:var(--green-dark)}
+:focus-visible{outline:3px solid rgba(181,138,43,.65);outline-offset:3px}
+@media(max-width:850px){nav{gap:11px}nav a{font-size:.83rem}.hero-grid{gap:28px}}
+@media(max-width:760px){
+.menu-button{display:block}
+nav{display:none;position:absolute;top:78px;left:0;right:0;padding:18px 4%;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 12px 18px rgba(20,60,38,.08);flex-direction:column;align-items:stretch}
+nav.open{display:flex}
+nav a{padding:8px 0;font-size:.95rem}
+nav a.btn-primary{padding:12px 16px}
+.hero{padding-top:49px}
+.hero-grid{grid-template-columns:1fr;gap:28px}
+.hero-card{padding:25px}
+.cards,.help-grid{grid-template-columns:1fr}
+.quick-links{grid-template-columns:repeat(2,1fr)}
+.support{padding:27px 19px}
+.form-wrap{padding:19px}
+section{padding:52px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 </style>
+</head>
+<body>
+
+<header>
+  <div class="container topbar">
+    <a class="brand" href="#accueil"><span class="brand-mark">Z</span><span>ZELVET<small>HAÏTI</small></span></a>
+    <button class="menu-button" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav id="nav">
+      <a href="#services">Services</a>
+      <a href="#aide">Aide</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-primary">Nous contacter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <div class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Bienvenue chez Zelvet</div>
+        <h1>Un tout <span>nouveau monde</span> s'offre à vous</h1>
+        <p>Zelvet vous accompagne pas à pas : informations claires, services utiles et un soutien humain pour avancer avec confiance.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">Découvrir nos services</a>
+          <a href="#contact" class="btn btn-outline">Nous écrire</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-symbol">Z</div>
+        <h3>Accès rapide</h3>
+        <p>Trouvez en un clic ce dont vous avez besoin.</p>
+        <div class="quick-links">
+          <a href="#services">Services</a>
+          <a href="#aide">Aide</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Nos services</div>
+        <h2>Ce que nous vous offrons</h2>
+        <p>Des solutions simples et accessibles, pensées pour vous.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="card-icon">🌱</div><h3>Accompagnement</h3><p>Un suivi personnalisé pour vous aider à atteindre vos objectifs.</p><a href="#contact">En savoir plus →</a></div>
+        <div class="card"><div class="card-icon">📚</div><h3>Information</h3><p>Des ressources claires et fiables, faciles à comprendre.</p><a href="#contact">En savoir plus →</a></div>
+        <div class="card"><div class="card-icon">🤝</div><h3>Soutien</h3><p>Une équipe à votre écoute pour répondre à vos questions.</p><a href="#contact">En savoir plus →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="aide">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Besoin d'aide ?</div>
+        <h2>Comment pouvons-nous vous aider ?</h2>
+      </div>
+      <div class="help-grid">
+        <div class="help-item"><div class="card-icon">❓</div><div><h3>Poser une question</h3><p>Écrivez-nous et recevez une réponse rapide.</p><a href="#contact" class="btn btn-outline">Écrire</a></div></div>
+        <div class="help-item"><div class="card-icon">📝</div><div><h3>Faire une demande</h3><p>Expliquez votre besoin, nous revenons vers vous.</p><a href="#contact" class="btn btn-outline">Demander</a></div></div>
+        <div class="help-item"><div class="card-icon">📖</div><div><h3>Consulter la FAQ</h3><p>Les réponses aux questions les plus fréquentes.</p><a href="#faq" class="btn btn-outline">Voir la FAQ</a></div></div>
+        <div class="help-item"><div class="card-icon">💬</div><div><h3>Donner un avis</h3><p>Vos suggestions nous aident à nous améliorer.</p><a href="#contact" class="btn btn-outline">Partager</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="support">
+        <div class="eyebrow">Soutien</div>
+        <h2>Vous n'êtes pas seul(e)</h2>
+        <p>Notre équipe est là pour vous écouter et vous guider. N'hésitez pas à nous contacter.</p>
+        <a href="#contact" class="btn btn-primary">Parler à l'équipe</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Contact</div>
+        <h2>Écrivez-nous</h2>
+        <p>Remplissez le formulaire ci-dessous.</p>
+      </div>
+      <div class="form-wrap">
+        <form id="contactForm">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" required autocomplete="name">
+          <label for="email">Courriel</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+          <label for="sujet">Sujet</label>
+          <select id="sujet" name="sujet">
+            <option>Question</option>
+            <option>Demande</option>
+            <option>Avis</option>
+            <option>Autre</option>
+          </select>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+          <p class="notice">Ne partagez pas d'informations sensibles (mots de passe, numéros bancaires).</p>
+          <button type="submit" class="btn-primary">Envoyer</button>
+          <p class="status" id="status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>Questions fréquentes</h2>
+      </div>
+      <details><summary>Qu'est-ce que Zelvet ?</summary><p>Zelvet est une plateforme qui vous offre information, accompagnement et soutien.</p></details>
+      <details><summary>Les services sont-ils gratuits ?</summary><p>Contactez-nous pour connaître les conditions de chaque service.</p></details>
+      <details><summary>Comment vous joindre ?</summary><p>Utilisez le formulaire de contact ci-dessus, nous répondons dans les meilleurs délais.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <strong>Zelvet</strong>
+      <p class="small">Un tout nouveau monde s'offre à vous.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#aide">Aide</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="container"><p class="small">© <span id="year"></span> Zelvet. Tous droits réservés.</p></div>
+</footer>
+
+<script>
+const btn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded',false)}));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('status').textContent='Merci ! Votre message a bien été préparé. (Formulaire de démonstration)';
+  e.target.reset();
+});
+</script>
+</body>
+</html>
